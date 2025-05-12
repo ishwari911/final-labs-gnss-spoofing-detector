@@ -91,6 +91,10 @@ $GPRMC,123457.00,A,1235.56,N,09877.54,W,0.1,200.0,010522,000.0,E*6B
 ## Demo Video used for reference:
 https://youtu.be/6Sp1_c7enxo?si=BDLSWx-rqiDy6d9t
 
+## Screenshots
+![image](https://github.com/user-attachments/assets/fb315b00-fee7-4967-991b-f7e321b92dd5)
+
+
 ## Conclusion
 
 GNSS spoofing is a growing threat, and this project aims to provide a practical tool to detect it. By identifying unrealistic speed and movement patterns, the tool helps raise awareness of this vulnerability and provides an educational demonstration of how to detect spoofing using GPS data logs.
