@@ -1,4 +1,3 @@
-I see now! I didn't mention this specific code in the previous README format. Let me update the README with the necessary details for your GNSS spoofing detection project. Here is the revised version:
 
 ---
 
@@ -93,4 +92,4 @@ GNSS spoofing is a growing threat, and this project aims to provide a practical 
 
 ---
 
-This version includes the project’s purpose, goals, code explanation, setup instructions, and a sample attack scenario with relevant output. It provides clarity on how the code works and what the user can expect when using the tool.
+
