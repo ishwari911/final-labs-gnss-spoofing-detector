@@ -1,93 +1,96 @@
+I see now! I didn't mention this specific code in the previous README format. Let me update the README with the necessary details for your GNSS spoofing detection project. Here is the revised version:
 
+---
 
 # GNSS Spoofing Detection Tool
 
 ## Problem Statement
 
-GNSS (Global Navigation Satellite System) spoofing is a malicious activity where attackers transmit fake GPS signals to mislead receivers. Spoofing can cause severe consequences in navigation, transportation, and military applications. Detecting such spoofing attempts is crucial to maintaining the integrity of GPS-based systems.
+Global Navigation Satellite System (GNSS) spoofing is a serious cybersecurity threat where attackers send fake GPS signals to deceive devices into believing they are in different locations. This can lead to significant risks, such as misguiding vehicles, drones, or other critical infrastructure. The goal of this project is to develop a tool that detects such spoofing attempts by analyzing GPS logs for unrealistic movement patterns or speed spikes.
 
-This project aims to develop a **GNSS Spoofing Detection Tool** that analyzes GPS log files, identifies anomalies, and alerts users to possible spoofing activities. The tool checks for irregularities like sudden jumps in location or abnormal speeds, which are common indicators of spoofing.
+This tool uses a **speed-based detection approach** to identify anomalies in GPS data that suggest possible spoofing. The analysis is based on the **Haversine formula**, which calculates the distance between two GPS coordinates, and compares the calculated speed to a predefined threshold.
 
-### Key Features:
+## Project Goals
 
-* **GPS Log Parsing:** The tool processes GPS log files (in NMEA format) to extract location and speed data.
-* **Speed Analysis:** It calculates the speed between consecutive GPS points and flags speeds that exceed a predefined threshold.
-* **Distance Calculation:** The tool uses the Haversine formula to compute distances between GPS coordinates to check for large, suspicious jumps.
-* **Spoofing Alerts:** If potential spoofing is detected, the tool raises alerts with the timestamp and details of the anomaly.
+* Create a Python-based tool that processes GPS data logs (in NMEA format).
+* Detect possible spoofing events based on speed anomalies.
+* Provide alerts with timestamps and speed values when potential spoofing is detected.
+* Offer a practical tool for experimenting with GNSS spoofing detection techniques.
+
+## Project Structure
+
+```
+gnss-spoofing-detection/
+├── detect_spoof.py          # Python script to detect spoofing using speed anomalies
+├── sample_log.nmea         # Example GPS log in NMEA format
+├── README.md               # Documentation and project setup instructions
+└── LICENSE                 # License information (optional)
+```
 
 ## Setup Instructions
 
-### 1. Clone the repository
+1. **Install Python**: Ensure Python 3.x is installed on your system.
+2. **Clone the Repository**: Download or clone the project files.
 
-Clone the repository to your local machine using the following command:
+   ```bash
+   git clone https://github.com/ishwari911/final-labs-gnss-spoofing-detector.git
 
-```bash
-git clone https://github.com/your-username/gnss-spoofing-detector.git
-```
+   ```
+3. **Run the Script**:
 
-### 2. Install dependencies
+   * The project uses basic Python libraries, so no additional dependencies are required.
+   * You can run the script to check for spoofing in a GPS log file.
 
-Navigate to the project directory and install the required dependencies. You can do this by running:
+   ```bash
+   python detect_spoof.py
+   ```
 
-```bash
-pip install -r requirements.txt
-```
+   * The script will process the `sample_log.nmea` file, calculate the speeds, and flag potential spoofing attempts based on unusually high speeds.
 
-The dependencies include libraries like `haversine` for distance calculation, and other necessary packages for handling GPS data and logging.
+## Example Attack Scenario
 
-### 3. Run the tool
+This tool detects when the calculated speed between two consecutive GPS positions exceeds a threshold (e.g., 300 km/h). This speed is usually unrealistic for regular GPS movement, indicating potential spoofing activity.
 
-Once the setup is complete, you can run the tool using:
-
-```bash
-python tool/source_code/detect_spoof.py
-```
-
-### 4. Input Format:
-
-The tool expects GPS log files in **NMEA format**. Ensure your log files are in the same directory or provide the path to the file in the script. You can find sample NMEA log files from various online sources or generate your own using GPS logging apps.
-
-### 5. Output
-
-The tool will output logs indicating potential spoofing based on excessive speed or distance anomalies. For example:
+**Example Input**:
 
 ```
- Possible spoofing detected at 12:34:56: Speed = 452.2 km/h (Threshold exceeded)
+$GPRMC,123456.00,A,1234.56,N,09876.54,W,0.1,25.0,010522,000.0,E*6A
+$GPRMC,123457.00,A,1235.56,N,09877.54,W,0.1,200.0,010522,000.0,E*6B
 ```
 
-## 📸 Screenshots / Logs / Diagrams
-
-### Sample Output:
-
-When spoofing is detected, the following message will appear in the terminal or console:
+**Example Output**:
 
 ```
- Possible spoofing detected at 12:34:56: Speed = 452.2 km/h (Threshold exceeded)
+🚨 Possible spoofing at 12:34:57: Speed = 320.50 km/h
 ```
 
-### Example Log:
+## Core Features
 
-The tool processes GPS data and produces logs like:
+* **Speed-based spoofing detection**: Calculates the speed between GPS coordinates and flags high-speed anomalies.
+* **Works offline**: Analyzes GPS log files locally.
+* **Customizable**: Modify the speed threshold and adapt the code for real-time use.
 
-```
-Processing GPS data...
-Distance between points: 120 km
-Speed: 452 km/h
-Spoofing detected: Yes
-```
+## Real-World Use Cases
 
-### Diagrams:
+* **Autonomous vehicles**: Prevent GPS manipulation in self-driving cars.
+* **Drones**: Detect spoofing attempts in drone navigation systems.
+* **Critical infrastructure**: Secure GPS systems used in sectors like transportation, logistics, and aviation.
 
-* **Spoofing Detection Flow:**
-  Below is a flowchart representing the spoofing detection process:
+## Future Enhancements
 
-  ![Spoofing Detection Flow](images/spoofing-detection-flow.png)
+* Integrate real-time GPS data analysis.
+* Use machine learning for anomaly detection and better spoofing identification.
+* Develop a web-based interface to visualize spoofing incidents on maps.
 
-  * **Step 1:** GPS data is read from the log file.
-  * **Step 2:** Distances between consecutive GPS points are calculated.
-  * **Step 3:** Speed is computed, and anomalies are checked against defined thresholds.
-  * **Step 4:** If a threshold is exceeded, the system flags the point as a potential spoof.
+## Ethical & Educational Impact
+
+* **Promotes cybersecurity awareness** by demonstrating the risks of GNSS spoofing.
+* **Supports safe and ethical GPS usage** in critical industries, reducing the risk of malicious manipulation.
+
+## Conclusion
+
+GNSS spoofing is a growing threat, and this project aims to provide a practical tool to detect it. By identifying unrealistic speed and movement patterns, the tool helps raise awareness of this vulnerability and provides an educational demonstration of how to detect spoofing using GPS data logs.
 
 ---
 
-This **README.md** is now more detailed and should meet the required structure. Feel free to adjust the content to fit your exact project details, and let me know if you need any further adjustments!
+This version includes the project’s purpose, goals, code explanation, setup instructions, and a sample attack scenario with relevant output. It provides clarity on how the code works and what the user can expect when using the tool.
