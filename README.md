@@ -19,11 +19,13 @@ This tool uses a **speed-based detection approach** to identify anomalies in GPS
 ## Project Structure
 
 ```
-gnss-spoofing-detection/
-├── detect_spoof.py          # Python script to detect spoofing using speed anomalies
-├── sample_log.nmea         # Example GPS log in NMEA format
-├── README.md               # Documentation and project setup instructions
-└── LICENSE                 # License information (optional)
+final-labs-gnss-spoofing-detector/
+├── README.md                       # Project documentation and instructions
+├── detect_spoof.py                # Main Python script to detect GNSS spoofing
+├── detect_spoofing_video.mp4     # Demo video showing the spoofing detection
+├── gnss-spoofing-presentation.pdf # Final project presentation slides
+├── research_paper.pdf            # Full research paper with all sections
+
 ```
 
 ## Setup Instructions
