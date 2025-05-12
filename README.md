@@ -86,6 +86,9 @@ $GPRMC,123457.00,A,1235.56,N,09877.54,W,0.1,200.0,010522,000.0,E*6B
 * **Promotes cybersecurity awareness** by demonstrating the risks of GNSS spoofing.
 * **Supports safe and ethical GPS usage** in critical industries, reducing the risk of malicious manipulation.
 
+## Demo Video used for reference:
+https://youtu.be/6Sp1_c7enxo?si=BDLSWx-rqiDy6d9t
+
 ## Conclusion
 
 GNSS spoofing is a growing threat, and this project aims to provide a practical tool to detect it. By identifying unrealistic speed and movement patterns, the tool helps raise awareness of this vulnerability and provides an educational demonstration of how to detect spoofing using GPS data logs.
